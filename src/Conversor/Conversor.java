@@ -1,6 +1,8 @@
 package Conversor;
+
+import Interfaz.Aplicacion;
+
 import javax.swing.*;
-import java.awt.event.KeyEvent;
 
 public class Conversor extends javax.swing.JFrame {
     //Declaracion de las variables
@@ -10,23 +12,16 @@ public class Conversor extends javax.swing.JFrame {
     private javax.swing.JTextField jtfGradosF;
     private javax.swing.JButton jbtAceptar;
     private Object objTextField;
-    private double grados;
 
     //Creamos un formulario
     public Conversor(){
         setSize(300,300); //Size del formulario
         setTitle("Conversor de temperaturas");//Titulo del formulario
-        initcomponents(); //Iniciamos los componentes
+        initcomponents();
 
     }
     //Metodo llamado por el formulario
     private void initcomponents(){
-        getContentPane().setLayout(null);
-        addWindowListener(new java.awt.event.WindowAdapter(){
-            public void windowClosing(java.awt.event.WindowEvent evt){
-                salir(evt);
-            }
-        });
         //Componentes
         jblGradosC= new javax.swing.JLabel();
         jtfGradosC= new javax.swing.JTextField();
@@ -35,6 +30,8 @@ public class Conversor extends javax.swing.JFrame {
         jbtAceptar= new javax.swing.JButton();
 
         //Administrador de diseño en nullo
+        getContentPane().setLayout(null);
+
 
 
         //Etiqueta "Grados centigrados"
@@ -44,9 +41,9 @@ public class Conversor extends javax.swing.JFrame {
 
         //Cajas de texto para los grados centigrados
         jtfGradosC.setText("0.00");
-        jtfGradosC.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jtfGradosC.setHorizontalAlignment(JTextField.RIGHT);
         getContentPane().add(jtfGradosC);
-        jtfGradosC.setBounds(132,28,144,24);
+        jtfGradosC.setBounds(132,28,116,24);
 
         //Etiqueta farenheits
         jblGradosF.setText("Grados Farenheits");
@@ -55,66 +52,37 @@ public class Conversor extends javax.swing.JFrame {
 
         //Caja de texto para farenheits
         jtfGradosF.setText("32.00");
-        jtfGradosF.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jtfGradosF.setHorizontalAlignment(JTextField.RIGHT);
         getContentPane().add(jtfGradosF);
         jtfGradosF.setBounds(132,72,144,24);
 
-        //Boton de aceptar boton por omision
+        //Boton de aceptar
         jbtAceptar.setText("Aceptar");
+        jbtAceptar.setMnemonic('A');
         getRootPane().setDefaultButton(jbtAceptar);
         getContentPane().add(jbtAceptar);
         jbtAceptar.setBounds(132,120,144,24);
 
-        //Manejador de eventos asociados con el boton
-        jbtAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt){
-                jbtAceptarActionPerformed(evt);
-        }
-        });
-        //
         java.awt.event.KeyListener kl= new java.awt.event.KeyAdapter(){
-            public void keyTyped(java.awt.event.KeyEvent evt){
-                jtfGradosKeyType(evt);
+            public void keyType(java.awt.event.KeyEvent evt){
+                jtfGradosType(evt);1
             }
         };
         jtfGradosC.addKeyListener(kl);
-        jtfGradosF.addKeyListener(kl);
 
 
+
+
+        getContentPane().setLayout(null);
+        addWindowListener(new java.awt.event.WindowAdapter(){
+            public void WindowClosing(java.awt.event.WindowEvent evt){
+                salir(evt);
+            }
+        });
     }
+
     //Metodo para salir de la aplicacion
     private void salir(java.awt.event.WindowEvent evt){
         System.exit(0);
-    }
-
-    public void jtfGradosKeyType(java.awt.event.KeyEvent evt){
-        objTextField= evt.getSource(); //Objeto que produjo un evento
-    }
-
-    //Este metodo responde al clic del boton aceptar
-    private void jbtAceptarActionPerformed(java.awt.event.ActionEvent evt){
-
-
-            // si se escribio en la caja del texto grados centigrados..
-        try {
-            if (objTextField == jtfGradosC) {
-                    grados = Double.parseDouble(jtfGradosC.getText()) * 9.0 / 5.0 + 32.0;
-                    String texto = String.format("%.2f", grados);//redondear a dos decimales
-                    jtfGradosF.setText(texto);
-
-
-            }
-            //Si se escribio en la caja del texto grados Farenheit
-            if (objTextField==jtfGradosF){
-
-                    grados = (Double.parseDouble(jtfGradosF.getText()) - 32.0) * 5.0 / 9.0;
-                    String texto = String.format("%.2f", grados); //Redondear a dos decimales
-                    jtfGradosC.setText(texto);
-            }
-        }catch (NumberFormatException e){
-            jtfGradosC.setText("0.00");
-            jtfGradosF.setText("32.00");
-        }
-
     }
 }
