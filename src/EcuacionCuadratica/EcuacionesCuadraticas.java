@@ -1,41 +1,33 @@
 package EcuacionCuadratica;
-import java.awt.*;
+import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.text.DecimalFormat;
 import javax.swing.*;
 
 
 public class EcuacionesCuadraticas extends JFrame{
 
-    //Variables
-    private JLabel a;
-    private JLabel b;
-    private JLabel c;
-    private JTextField at;
-    private JTextField bt;
-    private JTextField ct;
-    private JTextField x1,x2;
-
-    private JLabel xOne;
-    private JLabel xTwo;
-
+    //Variables las etiquetas
+    private JLabel a,b,c;
+    //
+    private JTextField at,bt,ct,x1,x2;
+    private JLabel xOne,xTwo;
     private JButton aceptar;
     private Object Boton;
-    FlowLayout flowLayout;
 
-
-
+    //Constructor
     public EcuacionesCuadraticas(){
-
         getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER));
-        setSize(250,300);
+        setSize(270,200);//Size que definimos
+        setLocationRelativeTo(null);//Aparece en el centro
+
+        setResizable(false);//Se bloque los rangos de la ventana
         Componentes();
         Boton();
         respuestas();
 
     }
-
+    //
     public void Componentes(){
         JPanel panelArriba= new JPanel();
         aceptar= new JButton();
@@ -43,7 +35,7 @@ public class EcuacionesCuadraticas extends JFrame{
         b=new JLabel();
         c=new JLabel();
         at=new JTextField(5);
-        bt=new JTextField(3);
+        bt=new JTextField(5);
         ct= new JTextField(5);
 
         xOne= new JLabel();
@@ -52,31 +44,31 @@ public class EcuacionesCuadraticas extends JFrame{
         x1= new JTextField(6);
         x2= new JTextField(6);
 
-        //Etiquetas\
-        a.setText("a");
-        a.setBackground(Color.GRAY);
+        //Etiquetas
+        a.setText("a"); //Como se llama la etiqueta
         getContentPane().add(a);
         panelArriba.add(a);
 
+        //Caja de texto
         at.setText("");
         getContentPane().add(at);
         panelArriba.add(at);
-
-
+        //Etiquetas
         b.setText("b");
         getContentPane().add(b);
         panelArriba.add(b);
 
-
+        //Caja de texto
         bt.setText("");
         getContentPane().add(bt);
         panelArriba.add(bt);
 
-
+        //Etiquetas
         c.setText("c");
         getContentPane().add(c);
         panelArriba.add(c);
 
+        //Caja de texto
         ct.setText("");
         getContentPane().add(ct);
         panelArriba.add(ct);
@@ -84,21 +76,21 @@ public class EcuacionesCuadraticas extends JFrame{
     }
     public void respuestas(){
         JPanel panelabajo= new JPanel();
+        //Etiqueta
         xOne.setText("x1");
         getContentPane().add(xOne);
         panelabajo.add(xOne);
-
+        //Caja de texto
         x1.setText("");
         getContentPane().add(x1);
         x1.setHorizontalAlignment(JTextField.CENTER);
         panelabajo.add(x1);
 
-
-
+        //Etiqueta
         xTwo.setText("x2");
         getContentPane().add(xTwo);
         panelabajo.add(xTwo);
-
+        //Caja de texto
         x2.setText("");
         getContentPane().add(x2);
         panelabajo.add(x2);

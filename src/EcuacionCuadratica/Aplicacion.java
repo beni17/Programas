@@ -2,6 +2,7 @@ package EcuacionCuadratica;
 
 import javax.swing.*;
 
+
 public class Aplicacion extends JFrame {
     public static void main(String[]args){
         try{
@@ -15,5 +16,8 @@ public class Aplicacion extends JFrame {
             System.out.println("No se pudo establecer el aspecto deseado"+ e);
         }
         new EcuacionesCuadraticas().setVisible(true);
+
+
+
     }
 }
