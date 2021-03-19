@@ -1,4 +1,4 @@
-package EcuacionCuadratica;
+package EcuacionesCuadraticas;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,7 +18,7 @@ public class EcuacionesCuadraticas extends JFrame {
     private JTextField x2;
     private JLabel xOne, xTwo;
     private JButton aceptar;
-    private Object Boton;
+
 
     //Constructor
     public EcuacionesCuadraticas() {
@@ -32,7 +32,6 @@ public class EcuacionesCuadraticas extends JFrame {
 
     }
 
-    //
     public void Componentes() {
         JPanel panelArriba = new JPanel();
         aceptar = new JButton();
@@ -78,6 +77,7 @@ public class EcuacionesCuadraticas extends JFrame {
         getContentPane().add(ct);
         panelArriba.add(ct);
         getContentPane().add(panelArriba);
+
     }
 
     public void respuestas() {
@@ -124,8 +124,7 @@ public class EcuacionesCuadraticas extends JFrame {
                 if (e.getSource()==aceptar) {
                     try {
 
-
-                        double a1, b1, c1, primerR, segundaR, denominador, Raiz, primeraX = 0, segundaX = 0;
+                        double a1, b1, c1, primerR, segundaR, denominador, primeraX = 0, segundaX = 0;
 
                         a1 = Double.parseDouble(at.getText());
                         b1 = Double.parseDouble(bt.getText());
@@ -137,10 +136,9 @@ public class EcuacionesCuadraticas extends JFrame {
                         segundaR = ((b1 * b1) - (primerR));
                         //Denominador
                         denominador = ((2) * (a1));
-                        //Sacando la raiz
-                        Raiz = Math.sqrt(segundaR);
+
                         //Si es mayor hace la operacion
-                        System.out.println(Raiz);
+
                         if (segundaR > 0) {
 
                             primeraX = ((-1 * b1) + Math.sqrt(segundaR)) / denominador;

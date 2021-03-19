@@ -1,4 +1,4 @@
-package EcuacionCuadratica;
+package EcuacionesCuadraticas;
 
 import javax.swing.*;
 
