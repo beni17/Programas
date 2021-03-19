@@ -9,12 +9,12 @@ public class frameCuadrado extends JFrame {
     //Declarar los componentes
     private JLabel lblnumero;
     private JTextField txtNumero, txtResultado;
-    private JButton btCuadrado;
+    private JButton btCuadrado,btLimpiar;
 
     //Constructor
     public frameCuadrado(){
         setSize(300,300);
-        setTitle("Elevacion al cuadrado");
+        setTitle("");
         Componentes();
 
     }
@@ -24,6 +24,7 @@ public class frameCuadrado extends JFrame {
         txtNumero= new JTextField();
         txtResultado= new JTextField();
         btCuadrado= new JButton();
+        btLimpiar= new JButton();
 
         getContentPane().setLayout(null);
 
@@ -40,11 +41,14 @@ public class frameCuadrado extends JFrame {
         getContentPane().add(txtResultado);
         txtResultado.setHorizontalAlignment(JTextField.CENTER);
         txtResultado.setBounds(70,70,130,24);
+        txtResultado.setEditable(false);
 
         btCuadrado.setText("Sacar el resultado");
-        getRootPane().setDefaultButton(btCuadrado);
         getContentPane().add(btCuadrado);
         btCuadrado.setBounds(70,100,170,24);
+
+
+
 
             btCuadrado.addActionListener(new ActionListener() {
                 @Override
@@ -63,7 +67,26 @@ public class frameCuadrado extends JFrame {
                 }
             });
 
+        btLimpiar.setText("Limpiar");
+        getContentPane().add(btLimpiar);
+        btLimpiar.setBounds(70,130,170,24);
 
-        }
+            btLimpiar.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    try {
+                        if (e.getSource()==btLimpiar){
+                            txtResultado.setText("0");
+                        }
+                    }catch (NumberFormatException exception){
+                        txtResultado.setText("Error");
+                    }
+                }
+            });
+
+
+    }
+
+
 }
 
