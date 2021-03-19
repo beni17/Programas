@@ -1,6 +1,6 @@
 package Conversor;
 
-import Interfaz.Aplicacion;
+
 
 import javax.swing.*;
 
@@ -64,14 +64,11 @@ public class Conversor extends javax.swing.JFrame {
         jbtAceptar.setBounds(132,120,144,24);
 
         java.awt.event.KeyListener kl= new java.awt.event.KeyAdapter(){
-            public void keyType(java.awt.event.KeyEvent evt){
-                jtfGradosType(evt);1
+            public void keyTyped(java.awt.event.KeyEvent evt){
+
             }
         };
         jtfGradosC.addKeyListener(kl);
-
-
-
 
         getContentPane().setLayout(null);
         addWindowListener(new java.awt.event.WindowAdapter(){
