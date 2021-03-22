@@ -14,7 +14,7 @@ public class Inicio {
         
            
             SwingUtilities.invokeLater(new Runnable() {
-        private ventana ventana;
+
             @Override
             public void run() {
     
